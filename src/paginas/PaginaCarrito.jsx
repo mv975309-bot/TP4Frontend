@@ -12,11 +12,12 @@ function PaginaCarrito() {
 
   const confirmarPedido = async () => {
     try {
-      await crearPedido({ items, total }, token)
+      const itemsFormateados = items.map(i => ({ libroId: i.id, cantidad: i.cantidad }))
+      await crearPedido({ items: itemsFormateados }, token)
       vaciarCarrito()
       navegar('/')
-    } catch {
-      alert('Error al confirmar el pedido')
+    } catch (err) {
+      alert(err.response?.data?.error || 'Error al confirmar el pedido')
     }
   }
 

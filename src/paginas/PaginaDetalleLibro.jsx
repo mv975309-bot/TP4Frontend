@@ -1,14 +1,34 @@
-import { Container, Row, Col, Button, ListGroup } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { useDetalleLibro } from '../hooks/useDetalleLibro'
 import { useCarrito } from '../contextos/ContextoCarrito'
+import { useAuth } from '../contextos/ContextoAuth'
 import TarjetaResena from '../componentes/TarjetaResena'
+import FormularioResena from '../componentes/FormularioResena'
 import Cargando from '../componentes/Cargando'
+import api from '../servicios/api'
 
 function PaginaDetalleLibro() {
   const { id } = useParams()
   const { libro, cargando } = useDetalleLibro(id)
   const { agregarAlCarrito } = useCarrito()
+  const { token, usuario } = useAuth()
+
+  const eliminarResenaAdmin = async (resenaId) => {
+    if (!confirm('¿Estás seguro de eliminar esta reseña?')) return
+    await api.delete(`/resena/admin/${resenaId}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    window.location.reload()
+  }
+
+  const eliminarResenaPropia = async (resenaId) => {
+    if (!confirm('¿Estás seguro de eliminar tu reseña?')) return
+    await api.delete(`/resena/${resenaId}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    window.location.reload()
+  }
 
   if (cargando) return <Cargando />
 
@@ -36,14 +56,28 @@ function PaginaDetalleLibro() {
       </Row>
       <h4 className="mt-5">Reseñas</h4>
       {libro.Resenas?.length > 0 ? (
-        <ListGroup variant="flush">
+        <div className="mb-4">
           {libro.Resenas.map(resena => (
-            <TarjetaResena key={resena.id} resena={resena} />
+            <TarjetaResena
+              key={resena.id}
+              resena={resena}
+              onEliminar={
+                usuario?.rol === 'admin'
+                  ? eliminarResenaAdmin
+                  : resena.usuarioId === usuario?.id
+                    ? eliminarResenaPropia
+                    : null
+              }
+            />
           ))}
-        </ListGroup>
+        </div>
       ) : (
         <p>No hay reseñas todavía.</p>
       )}
+      {token
+        ? <FormularioResena libroId={id} onResenaAgregada={() => window.location.reload()} />
+        : <p className="text-muted">Iniciá sesión para dejar una reseña.</p>
+      }
     </Container>
   )
 }

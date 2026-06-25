@@ -14,7 +14,7 @@ function PaginaInicio() {
   const { generos } = useGeneros()
 
   const librosFiltrados = generoSeleccionado
-    ? libros.filter(l => l.GeneroId === generoSeleccionado)
+    ? libros.filter(l => l.generoId === generoSeleccionado)
     : libros
 
   return (

@@ -17,8 +17,8 @@ function PaginaLogin() {
       const res = await login(datosLogin)
       iniciarSesion(res.data.usuario, res.data.token)
       navegar('/')
-    } catch {
-      setError('Email o contraseña incorrectos')
+    } catch (err) {
+      setError(err.response?.data?.error || 'Error al iniciar sesión')
     }
   }
 
@@ -28,8 +28,8 @@ function PaginaLogin() {
       const res = await register(datosRegistro)
       iniciarSesion(res.data.usuario, res.data.token)
       navegar('/')
-    } catch {
-      setError('Error al registrarse')
+    } catch (err) {
+      setError(err.response?.data?.error || JSON.stringify(err.response?.data?.errors) || 'Error al registrarse')
     }
   }
 

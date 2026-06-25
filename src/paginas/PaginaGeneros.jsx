@@ -11,7 +11,7 @@ function PaginaGeneros() {
   const [generoSeleccionado, setGeneroSeleccionado] = useState(null)
 
   const librosFiltrados = generoSeleccionado
-    ? libros.filter(l => l.GeneroId === generoSeleccionado)
+    ? libros.filter(l => l.generoId === generoSeleccionado)
     : libros
 
   if (cargandoGeneros || cargandoLibros) return <Cargando />
