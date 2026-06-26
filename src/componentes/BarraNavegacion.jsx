@@ -10,9 +10,9 @@ function BarraNavegacion() {
   const cantidadItems = items.reduce((acc, i) => acc + i.cantidad, 0)
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">Librería</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">SVM Books</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto">

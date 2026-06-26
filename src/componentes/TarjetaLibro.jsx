@@ -15,6 +15,7 @@ function TarjetaLibro({ libro }) {
       />
       <Card.Body>
         <Card.Title>{libro.titulo}</Card.Title>
+        <Card.Subtitle className="mb-2">{libro.Autor?.nombre}</Card.Subtitle>
         <Card.Text>${libro.precio}</Card.Text>
         <div className="d-flex gap-2">
           <Button variant="outline-primary" size="sm" onClick={() => navegar(`/libros/${libro.id}`)}>

@@ -1,28 +1,26 @@
-import { Card, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { StarFill } from 'react-bootstrap-icons'
 
 function TarjetaResena({ resena, onEliminar }) {
   return (
-    <Card className="mb-2">
-      <Card.Body>
-        <div className="d-flex justify-content-between align-items-center">
+    <div className="svm-resena">
+      <div className="d-flex justify-content-between align-items-start">
+        <div>
           <strong>{resena.Usuario?.nombre || 'Usuario'}</strong>
-          <div className="d-flex align-items-center gap-2">
-            <span className="d-flex gap-1">
-              {Array.from({ length: resena.puntaje }).map((_, i) => (
-                <StarFill key={i} color="gold" />
-              ))}
-            </span>
-            {onEliminar && (
-              <Button size="sm" variant="danger" onClick={() => onEliminar(resena.id)}>
-                Eliminar
-              </Button>
-            )}
+          <div className="d-flex gap-1 my-1">
+            {Array.from({ length: resena.puntaje }).map((_, i) => (
+              <StarFill key={i} color="#C05A3A" size={14} />
+            ))}
           </div>
         </div>
-        <Card.Text className="mt-2">{resena.comentario}</Card.Text>
-      </Card.Body>
-    </Card>
+        {onEliminar && (
+          <Button size="sm" variant="danger" onClick={() => onEliminar(resena.id)}>
+            Eliminar
+          </Button>
+        )}
+      </div>
+      <p className="mb-0 mt-1" style={{ fontSize: '0.9rem' }}>{resena.comentario}</p>
+    </div>
   )
 }
 

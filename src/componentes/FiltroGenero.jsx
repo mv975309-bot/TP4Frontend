@@ -1,24 +1,20 @@
-import { Badge } from 'react-bootstrap'
-
 function FiltroGenero({ generos, seleccionado, onSeleccionar }) {
   return (
     <div className="d-flex flex-wrap gap-2">
-      <Badge
-        bg={seleccionado === null ? 'primary' : 'secondary'}
-        style={{ cursor: 'pointer' }}
+      <span
+        className={`svm-chip${seleccionado === null ? ' activo' : ''}`}
         onClick={() => onSeleccionar(null)}
       >
         Todos
-      </Badge>
+      </span>
       {generos.map(genero => (
-        <Badge
+        <span
           key={genero.id}
-          bg={seleccionado === genero.id ? 'primary' : 'secondary'}
-          style={{ cursor: 'pointer' }}
+          className={`svm-chip${seleccionado === genero.id ? ' activo' : ''}`}
           onClick={() => onSeleccionar(genero.id)}
         >
           {genero.nombre}
-        </Badge>
+        </span>
       ))}
     </div>
   )

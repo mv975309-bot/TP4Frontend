@@ -1,0 +1,477 @@
+/* ==============================
+   SVM Books — Estilo
+   Basado en wireframes Entrega 2
+   ============================== */
+
+:root {
+  --svm-rust:        #C05A3A;
+  --svm-rust-dark:   #9B4228;
+  --svm-rust-light:  #F7EDE7;
+  --svm-bg:          #FAF6F1;
+  --svm-white:       #FFFFFF;
+  --svm-text:        #1E1E1E;
+  --svm-muted:       #8A7A70;
+  --svm-border:      #E4D5CB;
+}
+
+/* ==============================
+   Base
+   ============================== */
+body {
+  background-color: var(--svm-bg) !important;
+  color: var(--svm-text) !important;
+  font-family: sans-serif;
+}
+
+/* ==============================
+   Navbar
+   ============================== */
+.navbar {
+  background-color: var(--svm-white) !important;
+  border-bottom: 2px solid var(--svm-border) !important;
+  padding: 0.6rem 0 !important;
+}
+
+.navbar-brand {
+  font-size: 1.4rem !important;
+  font-weight: 800 !important;
+  color: var(--svm-rust) !important;
+  font-family: Georgia, serif !important;
+  letter-spacing: 0.3px;
+}
+
+.navbar-brand:hover {
+  color: var(--svm-rust-dark) !important;
+}
+
+.navbar .nav-link {
+  color: var(--svm-text) !important;
+  font-size: 0.92rem !important;
+  padding: 0.35rem 0.8rem !important;
+  border-radius: 5px;
+  transition: all 0.15s;
+}
+
+.navbar .nav-link:hover {
+  background-color: var(--svm-rust-light) !important;
+  color: var(--svm-rust) !important;
+}
+
+/* ==============================
+   Hero section (PaginaInicio)
+   ============================== */
+.svm-hero {
+  background: linear-gradient(120deg, var(--svm-rust) 0%, #D4785A 100%);
+  border-radius: 14px;
+  padding: 3rem 2.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.svm-hero-texto h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white !important;
+  font-family: Georgia, serif;
+  margin-bottom: 0.5rem;
+}
+
+.svm-hero-texto p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.svm-hero-imagen {
+  width: 140px;
+  height: 140px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: font-size;
+  flex-shrink: 0;
+  font-size: 4rem;
+}
+
+.svm-hero .btn-hero-principal {
+  background-color: white !important;
+  color: var(--svm-rust) !important;
+  border: none !important;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.5rem 1.3rem;
+  margin-right: 0.6rem;
+  transition: opacity 0.2s;
+}
+
+.svm-hero .btn-hero-principal:hover {
+  opacity: 0.9;
+}
+
+.svm-hero .btn-hero-secundario {
+  background-color: transparent !important;
+  color: white !important;
+  border: 2px solid rgba(255,255,255,0.7) !important;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.5rem 1.3rem;
+  transition: all 0.2s;
+}
+
+.svm-hero .btn-hero-secundario:hover {
+  background-color: rgba(255,255,255,0.15) !important;
+  border-color: white !important;
+}
+
+/* ==============================
+   Títulos de sección
+   ============================== */
+.svm-seccion-titulo {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--svm-rust);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--svm-rust-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.svm-seccion-titulo a {
+  font-size: 0.8rem;
+  color: var(--svm-muted);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.svm-seccion-titulo a:hover {
+  color: var(--svm-rust);
+}
+
+h2, h3 {
+  color: var(--svm-rust) !important;
+  font-weight: 700 !important;
+}
+
+h4 {
+  color: var(--svm-text) !important;
+  font-weight: 600 !important;
+}
+
+/* ==============================
+   Cards (Tarjeta libro)
+   ============================== */
+.card {
+  background-color: var(--svm-white) !important;
+  border: 1px solid var(--svm-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06) !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(192,90,58,0.16) !important;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+
+.card-body {
+  padding: 0.85rem 1rem !important;
+}
+
+.card-title {
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  color: var(--svm-text) !important;
+  margin-bottom: 0.1rem !important;
+}
+
+.card-subtitle {
+  font-size: 0.8rem !important;
+  color: var(--svm-muted) !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.card-text {
+  color: var(--svm-rust) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+/* ==============================
+   Botones
+   ============================== */
+.btn-primary {
+  background-color: var(--svm-rust) !important;
+  border-color: var(--svm-rust) !important;
+  color: white !important;
+  border-radius: 7px !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--svm-rust-dark) !important;
+  border-color: var(--svm-rust-dark) !important;
+}
+
+.btn-outline-primary {
+  color: var(--svm-rust) !important;
+  border-color: var(--svm-rust) !important;
+  border-radius: 7px !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--svm-rust) !important;
+  color: white !important;
+}
+
+.btn-success {
+  background-color: #4A7C59 !important;
+  border-color: #4A7C59 !important;
+  border-radius: 7px !important;
+}
+
+.btn-danger {
+  border-radius: 7px !important;
+}
+
+.btn-warning {
+  background-color: #B87333 !important;
+  border-color: #B87333 !important;
+  color: white !important;
+  border-radius: 7px !important;
+}
+
+.btn-warning:hover {
+  background-color: #8A5520 !important;
+  color: white !important;
+}
+
+/* ==============================
+   Chips de géneros
+   ============================== */
+.svm-chip {
+  display: inline-block;
+  padding: 0.4em 1.1em;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--svm-rust);
+  background-color: transparent;
+  color: var(--svm-rust);
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.svm-chip:hover,
+.svm-chip.activo {
+  background-color: var(--svm-rust);
+  color: white;
+}
+
+/* ==============================
+   Badge del carrito
+   ============================== */
+.badge.bg-danger {
+  background-color: var(--svm-rust) !important;
+}
+
+/* ==============================
+   Búsqueda
+   ============================== */
+.form-control {
+  border-color: var(--svm-border) !important;
+  border-radius: 8px !important;
+  font-size: 0.92rem;
+}
+
+.form-control:focus {
+  border-color: var(--svm-rust) !important;
+  box-shadow: 0 0 0 0.2rem rgba(192,90,58,0.15) !important;
+}
+
+.input-group .form-control {
+  border-radius: 8px 0 0 8px !important;
+}
+
+.input-group .btn {
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* ==============================
+   Página géneros — lista
+   ============================== */
+.list-group-item {
+  background-color: var(--svm-white) !important;
+  border-color: var(--svm-border) !important;
+  color: var(--svm-text) !important;
+  font-size: 0.9rem;
+  transition: all 0.15s;
+}
+
+.list-group-item:hover {
+  background-color: var(--svm-rust-light) !important;
+  color: var(--svm-rust) !important;
+}
+
+.list-group-item.active {
+  background-color: var(--svm-rust) !important;
+  border-color: var(--svm-rust) !important;
+  color: white !important;
+}
+
+/* ==============================
+   Tablas admin
+   ============================== */
+.table {
+  font-size: 0.88rem;
+  background-color: var(--svm-white) !important;
+}
+
+.table thead th {
+  background-color: var(--svm-rust) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border: none !important;
+}
+
+.table tbody tr:hover {
+  background-color: var(--svm-rust-light) !important;
+}
+
+.table td {
+  vertical-align: middle !important;
+  color: var(--svm-text) !important;
+}
+
+/* ==============================
+   Tabs admin
+   ============================== */
+.nav-tabs {
+  border-bottom: 2px solid var(--svm-border) !important;
+}
+
+.nav-tabs .nav-link {
+  color: var(--svm-muted) !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  margin-bottom: -2px;
+  font-size: 0.88rem;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--svm-rust) !important;
+  background: transparent !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--svm-rust) !important;
+  border-bottom: 2px solid var(--svm-rust) !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+}
+
+/* ==============================
+   Modal
+   ============================== */
+.modal-header {
+  background-color: var(--svm-rust-light);
+  border-bottom: 1px solid var(--svm-border) !important;
+}
+
+.modal-title {
+  color: var(--svm-rust);
+  font-weight: 700;
+}
+
+.modal-content {
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+}
+
+/* ==============================
+   Formularios
+   ============================== */
+.form-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--svm-text);
+}
+
+.form-select {
+  border-color: var(--svm-border) !important;
+  border-radius: 8px !important;
+}
+
+.form-select:focus {
+  border-color: var(--svm-rust) !important;
+  box-shadow: 0 0 0 0.2rem rgba(192,90,58,0.15) !important;
+}
+
+/* ==============================
+   Alerts
+   ============================== */
+.alert-info {
+  background-color: var(--svm-rust-light) !important;
+  border-color: var(--svm-border) !important;
+  color: var(--svm-rust) !important;
+}
+
+.alert-danger {
+  background-color: #fdf0f0 !important;
+  color: #8B2020 !important;
+}
+
+/* ==============================
+   Detalle libro
+   ============================== */
+.svm-precio {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--svm-rust);
+}
+
+/* ==============================
+   Reseñas
+   ============================== */
+.svm-resena {
+  background-color: var(--svm-white);
+  border: 1px solid var(--svm-border);
+  border-left: 4px solid var(--svm-rust);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.svm-resena strong {
+  color: var(--svm-rust);
+}
+
+/* ==============================
+   Footer
+   ============================== */
+.svm-footer {
+  text-align: center;
+  color: var(--svm-muted);
+  font-size: 0.82rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--svm-border);
+  margin-top: 3rem;
+}
