@@ -1,16 +1,61 @@
-# React + Vite
+# SVM Books — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Cliente web de la librería virtual SVM Books. Desarrollado con React + Vite y React Bootstrap.
 
-Currently, two official plugins are available:
+## Integrantes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Quevedo, Samir
+- Vélez, Manuel
+- Martino, Valentín
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + Vite
+- React Bootstrap (librería UI)
+- React Router DOM (navegación)
+- Axios (llamadas a la API)
+- Context API con useContext (estado global)
 
-## Expanding the Oxlint configuration
+## Requisitos previos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Tener el backend corriendo en `http://localhost:3000`. Ver instrucciones en el repositorio del backend.
+
+## Instalación
+
+```
+npm install
+```
+
+## Levantar la aplicación
+
+```
+npm run dev
+```
+
+La app queda disponible en `http://localhost:5173`.
+
+## Vistas
+
+| Ruta | Vista | Descripción |
+|------|-------|-------------|
+| `/` | Inicio | Catálogo de libros con búsqueda y filtro por género |
+| `/libros/:id` | Detalle de libro | Información completa, reseñas y agregar al carrito |
+| `/generos` | Géneros | Listado de géneros con libros filtrados |
+| `/carrito` | Carrito | Items del carrito y confirmación de pedido |
+| `/login` | Login / Registro | Inicio de sesión y creación de cuenta |
+| `/admin` | Panel de administración | CRUD de libros, autores, géneros, editoriales, usuarios y reseñas |
+
+## Estado global
+
+- **ContextoAuth**: gestiona el usuario autenticado y el token JWT (persiste en localStorage)
+- **ContextoCarrito**: gestiona los items del carrito de compras
+
+## Funcionalidades principales
+
+- Búsqueda de libros por título
+- Filtrado por género
+- Registro e inicio de sesión con JWT
+- Carrito de compras que genera pedidos reales en el backend
+- Reseñas con puntaje de estrellas (crear, ver, eliminar)
+- Panel de administración completo (solo para usuarios con rol admin)
+- Gestión de roles de usuario desde el panel admin
