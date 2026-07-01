@@ -75,7 +75,9 @@ function PaginaDetalleLibro() {
         <p>No hay reseñas todavía.</p>
       )}
       {token
-        ? <FormularioResena libroId={id} onResenaAgregada={() => window.location.reload()} />
+        ? libro.Resenas?.some(r => r.usuarioId === usuario?.id)
+          ? <p className="text-muted">Ya escribiste una reseña para este libro.</p>
+          : <FormularioResena libroId={id} onResenaAgregada={() => window.location.reload()} />
         : <p className="text-muted">Iniciá sesión para dejar una reseña.</p>
       }
     </Container>

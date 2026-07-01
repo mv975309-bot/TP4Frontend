@@ -8,6 +8,7 @@ import PaginaGeneros from './paginas/PaginaGeneros'
 import PaginaCarrito from './paginas/PaginaCarrito'
 import PaginaAdmin from './paginas/PaginaAdmin'
 import PaginaLogin from './paginas/PaginaLogin'
+import RutaAdmin from './componentes/RutaAdmin'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Route path="/libros/:id" element={<PaginaDetalleLibro />} />
             <Route path="/generos" element={<PaginaGeneros />} />
             <Route path="/carrito" element={<PaginaCarrito />} />
-            <Route path="/admin" element={<PaginaAdmin />} />
+            <Route path="/admin" element={<RutaAdmin><PaginaAdmin /></RutaAdmin>} />
             <Route path="/login" element={<PaginaLogin />} />
           </Routes>
         </BrowserRouter>
